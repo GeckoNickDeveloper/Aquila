@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Match } from 'src/models/match';
+import { TimerComponent } from './timer/timer.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @Component({
 	selector: 'aquila-root',
@@ -6,5 +11,38 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'Aquila';
+	match: Match;
+	@ViewChild(TimerComponent) timer: TimerComponent;
+
+	showAlert: boolean;
+	signal: any = new Audio('assets/audio/match_end.mp3');
+	SIG_DUR: number = 5000; // Duration of audio signal
+
+	constructor(private dialog: MatDialog) { this.match = new Match(); }
+
+	ngOnInit(): void { this.showAlert = false; }
+
+	displayAlert(): void {
+		this.signal.play();
+		this.showAlert = true;
+		
+		setTimeout(() => {
+			this.signal.pause();
+			this.showAlert = false;
+		}, this.SIG_DUR);
+	}
+
+	reset(): void {
+		let dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { message: 'Do you want to reset the match?' } })
+
+		dialogRef.afterClosed().subscribe(
+			(res) => {
+				if (res) {
+					this.match = new Match();
+					console.log(this.match)
+					this.timer.reset();
+				}
+			}, (err) => { }
+		);
+	}
 }

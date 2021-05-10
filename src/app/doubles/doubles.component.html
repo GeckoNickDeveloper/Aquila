@@ -1,0 +1,19 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col"></div>
+		<span class="counter noselect"> {{ counter }} </span>
+		<div class="col"></div>
+	</div>
+	<div class="row">
+		<div class="col"></div>
+		<div class="btn-group">
+			<button class="btn" (click)="remove()" [disabled]="counter === 0">
+				<span class="material-icons">remove</span>
+			</button>
+			<button class="btn" (click)="add()">
+				<span class="material-icons">add</span>
+			</button>
+		</div>
+		<div class="col"></div>
+	</div>
+</div>

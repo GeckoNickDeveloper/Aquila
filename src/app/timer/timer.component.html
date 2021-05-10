@@ -1,0 +1,27 @@
+<div class="container-fluid timer-component">
+	<div class="row">
+		<div class="col noselect" *ngIf="minutes === '0' && seconds === '00' && millis === '0'">
+			<span class="timer"> {{ minutes }} : {{ seconds }} : {{ millis }} </span>
+		</div>
+		<div class="col noselect" *ngIf="!(minutes === '0' && seconds === '00' && millis === '0')">
+			<span class="timer" (click)="toggle()"> {{ minutes }} : {{ seconds }} : {{ millis }} </span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col"></div>
+		<div class="btn-group">
+			<button class="btn" (click)="setTimer(MIN_1)"> 1m </button>
+			<button class="btn" (click)="setTimer(MIN_2)"> 2m </button>
+			<button class="btn" (click)="setTimer(MIN_3)"> 3m </button>
+			
+			<button class="btn" (click)="setTimer(timer)">
+				<span class="material-icons">restore</span>
+			</button>
+			<button class="btn" (click)="toggle()" [disabled]="minutes === '0' && seconds === '00' && millis === '0'"><!-- {{ (paused) ? 'resume' : 'pause' }} -->
+				<span class="material-icons" *ngIf="!paused">pause</span>
+				<span class="material-icons" *ngIf="paused">play_arrow</span>
+			</button>
+		</div>
+		<div class="col"></div>
+	</div>
+</div>
