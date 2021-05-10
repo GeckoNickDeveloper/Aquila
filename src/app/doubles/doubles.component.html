@@ -1,13 +1,13 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col"></div>
-		<span class="counter noselect"> {{ counter }} </span>
+		<span class="counter noselect"> {{ match.doubles }} </span>
 		<div class="col"></div>
 	</div>
 	<div class="row">
 		<div class="col"></div>
 		<div class="btn-group">
-			<button class="btn" (click)="remove()" [disabled]="counter === 0">
+			<button class="btn" (click)="remove()" [disabled]="match.doubles === 0">
 				<span class="material-icons">remove</span>
 			</button>
 			<button class="btn" (click)="add()">

@@ -1,15 +1,15 @@
 <aquila-visual-alert *ngIf="showAlert"></aquila-visual-alert>
 
-<div class="container-fluid" *ngIf="!showAlert">
+<div class="container-fluid" [hidden]="showAlert">
 	<!-- Scores -->
-	<div class="row">
+	<div class="row" *ngIf="match">
 		<div class="col-md-4">
 			<!--<aquila-score [color]="'blue'" [position]="'right'" [score]=0></aquila-score>-->
 			<aquila-fencer [fencer]="match.blue" color="blue" align="right"></aquila-fencer>
 		</div>
 		
 		<div class="col-md-4 doubles">
-			<aquila-doubles [counter]="match.doubles"></aquila-doubles>
+			<aquila-doubles [match]="match"></aquila-doubles>
 		</div>
 
 		<div class="col-md-4">

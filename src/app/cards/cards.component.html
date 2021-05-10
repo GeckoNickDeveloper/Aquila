@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-2">
-			<span class=""> {{ red }} </span>
+			<span class=""> {{ fencer.rCards }} </span>
 		</div>
 		<div class="col-2">
 			<span class="material-icons penalty-card red-card">style</span>
@@ -11,7 +11,7 @@
 				<button class="btn" (click)="addRCard()">
 					<span class="material-icons">add</span>
 				</button>
-				<button class="btn" (click)="removeRCard()" [disabled]="red === 0">
+				<button class="btn" (click)="removeRCard()" [disabled]="fencer.rCards === 0">
 					<span class="material-icons">remove</span>
 				</button>
 			</div>
@@ -22,7 +22,7 @@
 				<button class="btn" (click)="addYCard()">
 					<span class="material-icons">add</span>
 				</button>
-				<button class="btn" (click)="removeYCard()" [disabled]="yellow === 0">
+				<button class="btn" (click)="removeYCard()" [disabled]="fencer.yCards === 0">
 					<span class="material-icons">remove</span>
 				</button>
 			</div>
@@ -31,7 +31,7 @@
 			<span class="material-icons penalty-card yellow-card">style</span>
 		</div>
 		<div class="col-2">
-			<span class=""> {{ yellow }} </span>
+			<span class=""> {{ fencer.yCards }} </span>
 		</div>
 	</div>
 </div>
