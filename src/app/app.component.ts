@@ -10,19 +10,20 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	match: Match;
 	@ViewChild(TimerComponent) timer: TimerComponent;
 
 	showAlert: boolean;
 	signal: any = new Audio('assets/audio/match_end.mp3');
-	SIG_DUR: number = 5000; // Duration of audio signal
+	SIG_DUR: number = 1000; // Duration of audio signal (default 5s)
 
 	constructor(private dialog: MatDialog) { this.match = new Match(); }
 
 	ngOnInit(): void { this.showAlert = false; }
 
 	displayAlert(): void {
+		console.error('expired');
 		this.signal.play();
 		this.showAlert = true;
 		
@@ -39,7 +40,7 @@ export class AppComponent {
 			(res) => {
 				if (res) {
 					this.match = new Match();
-					console.log(this.match)
+
 					this.timer.reset();
 				}
 			}, (err) => { }

@@ -17,6 +17,7 @@ export class TimerComponent implements OnInit {
 	// Timer config
 	timer: number; // Milliseconds of the timer
 	remaining: number; // Milliseconds remaining
+	expiredLock: boolean;
 
 	paused: boolean;
 
@@ -39,7 +40,7 @@ export class TimerComponent implements OnInit {
 	constructor(private dialog: MatDialog) { }
 
 	ngOnInit(): void {
-		this.timer = this.MIN_3;
+		this.timer = this.TEST; // Default 2min
 		this.reset();
 
 		setInterval(() => { this.timerCallback(); }, 100);
@@ -54,9 +55,9 @@ export class TimerComponent implements OnInit {
 		if (this.minutes === '0' && this.seconds === '00' && this.millis === '0') {
 			this.paused = true;
 
-			/*if (!this.audioLock) {
-				this.endTimerCallback();
-			}*/
+			if (!this.expiredLock) {
+				this.expireCallback();
+			}
 		}
 	}
 
@@ -79,6 +80,8 @@ export class TimerComponent implements OnInit {
 	}
 
 	reset(): void {
+		console.warn('Timer Reset');
+		this.expiredLock = false;
 		this.paused = true;
 		this.remaining = this.timer;
 		this.render();
@@ -102,6 +105,7 @@ export class TimerComponent implements OnInit {
 	}
 
 	expireCallback(): void {
+		this.expiredLock = true;
 		this.expire.emit();
 	}
 
