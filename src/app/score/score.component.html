@@ -3,21 +3,21 @@
 		<button class="btn" (click)="add()">
 			<span class="material-icons">add</span>
 		</button>
-		<button class="btn" (click)="remove()" [disabled]="score === 0">
+		<button class="btn" (click)="remove()" [disabled]="fencer.score === 0">
 			<span class="material-icons">remove</span>
 		</button>
 	</div>
 
 	<div class="score-viewer col-10">
-		<span class="fencer noselect" [ngClass]="{ 'blue-fencer': color === 'blue', 'yellow-fencer': color === 'yellow' }"> {{ score }} </span>
-		<span class="noselect"> {{ name }} </span>
+		<span class="fencer noselect" [ngClass]="{ 'blue-fencer': color === 'blue', 'yellow-fencer': color === 'yellow' }"> {{ fencer.score }} </span>
+		<span class="noselect"> {{ fencer.name }} </span>
 	</div>
 
 	<div class="col-2 btn-group-vertical" *ngIf="position === 'right'">
 		<button class="btn" (click)="add()">
 			<span class="material-icons">add</span>
 		</button>
-		<button class="btn" (click)="remove()" [disabled]="score === 0">
+		<button class="btn" (click)="remove()" [disabled]="fencer.score === 0">
 			<span class="material-icons">remove</span>
 		</button>
 	</div>

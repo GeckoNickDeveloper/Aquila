@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Fencer } from 'src/models/fencer';
 
 @Component({
 	selector: 'aquila-fencer-score',
@@ -8,8 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ScoreComponent implements OnInit {
 	@Input('color') color: 'blue' | 'yellow';
 	@Input('position') position: 'left' | 'right';
-	@Input('score') score: number;
-	@Input('name') name: string;
+	@Input('fencer') fencer: Fencer;
 
 	constructor() { }
 
@@ -17,10 +17,10 @@ export class ScoreComponent implements OnInit {
 
 	// Operations
 	add(): void {
-		this.score++;
+		this.fencer.score++;
 	}
 
 	remove(): void {
-		this.score--;
+		this.fencer.score--;
 	}
 }

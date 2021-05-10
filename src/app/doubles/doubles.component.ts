@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Match } from 'src/models/match';
 
 @Component({
 	selector: 'aquila-doubles',
@@ -6,17 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 	styleUrls: ['./doubles.component.css']
 })
 export class DoublesComponent implements OnInit {
-	@Input('counter') counter: number;
+	@Input('match') match: Match;
 
 	constructor() { }
 
 	ngOnInit(): void { }
 
 	add(): void {
-		this.counter++;
+		this.match.doubles++;
 	}
 
 	remove(): void {
-		this.counter--;
+		this.match.doubles--;
 	}
 }

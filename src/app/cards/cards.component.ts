@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Fencer } from 'src/models/fencer';
 
 @Component({
 	selector: 'aquila-fencer-cards',
@@ -6,26 +7,25 @@ import { Component, Input, OnInit } from '@angular/core';
 	styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-	@Input('red') red: number;
-	@Input('yellow') yellow: number;
+	@Input('fencer') fencer: Fencer;
 
 	constructor() { }
 
 	ngOnInit(): void { }
 
 	addYCard(): void {
-		this.yellow++;
+		this.fencer.yCards++;
 	}
 
 	removeYCard(): void {
-		this.yellow--;
+		this.fencer.yCards--;
 	}
 
 	addRCard(): void {
-		this.red++;
+		this.fencer.rCards++;
 	}
 
 	removeRCard(): void {
-		this.red--;
+		this.fencer.rCards--;
 	}
 }
