@@ -65,7 +65,7 @@
 	.doubles-text {
 		font-size: 200px;
 	}
-}*/
+}*
 
 .timer-text {
 	font-size: 5cm;
@@ -81,4 +81,40 @@
 
 .doubles-text {
 	font-size: 2cm;
+}*/
+
+@media(max-width: 2160px) {
+	.timer-text {
+		font-size: 5cm;
+	}
+
+	.score-text {
+		font-size: 5cm;
+	}
+
+	.card-text {
+		font-size: 1cm;
+	}
+
+	.doubles-text {
+		font-size: 2cm;
+	}
+}
+
+@media(min-width: 2161px) {
+	.timer-text {
+		font-size: 10cm;
+	}
+
+	.score-text {
+		font-size: 10cm;
+	}
+
+	.card-text {
+		font-size: 2cm;
+	}
+
+	.doubles-text {
+		font-size: 4cm;
+	}
 }
