@@ -40,7 +40,7 @@ export class TimerComponent implements OnInit {
 	constructor(private dialog: MatDialog) { }
 
 	ngOnInit(): void {
-		this.timer = this.TEST; // Default 2min
+		this.timer = this.MIN_2; // Default 2min
 		this.reset();
 
 		setInterval(() => { this.timerCallback(); }, 100);
@@ -73,6 +73,7 @@ export class TimerComponent implements OnInit {
 
 	addTime(millis: number): void {
 		this.remaining += millis;
+		this.render();
 	}
 
 	removeTime(millis: number): void {
