@@ -13,12 +13,108 @@
 }
 
 /* FONTS */
-@media(max-width: 800px) {
+/*@media(min-width: 720px) {
 	.timer-text {
 		font-size: 0px;
 	}
 
 	.score-text {
 		font-size: 0px;
+	}
+
+	.card-text {
+		font-size: 0px;
+	}
+
+	.doubles-text {
+		font-size: 0px;
+	}
+}
+
+@media(max-width: 1080px) {
+	.timer-text {
+		font-size: 112px;
+	}
+
+	.score-text {
+		font-size: 125px;
+	}
+
+	.card-text {
+		font-size: 15px;
+	}
+
+	.doubles-text {
+		font-size: 50px;
+	}
+}
+
+@media(max-width: 3840px) {
+	.timer-text {
+		font-size: 350px;
+	}
+
+	.score-text {
+		font-size: 425px;
+	}
+
+	.card-text {
+		font-size: 50px;
+	}
+
+	.doubles-text {
+		font-size: 200px;
+	}
+}*
+
+.timer-text {
+	font-size: 5cm;
+}
+
+.score-text {
+	font-size: 5cm;
+}
+
+.card-text {
+	font-size: 1cm;
+}
+
+.doubles-text {
+	font-size: 2cm;
+}*/
+
+@media(max-width: 2160px) {
+	.timer-text {
+		font-size: 5cm;
+	}
+
+	.score-text {
+		font-size: 5cm;
+	}
+
+	.card-text {
+		font-size: 1cm;
+	}
+
+	.doubles-text {
+		font-size: 2cm;
+	}
+}
+
+@media(min-width: 2161px) {
+	.timer-text {
+		font-size: 10cm;
+	}
+
+	.score-text {
+		font-size: 10cm;
+	}
+
+	.card-text {
+		font-size: 2cm;
+	}
+
+	.doubles-text {
+		font-size: 4cm;
 	}
 }

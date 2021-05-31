@@ -1,4 +1,4 @@
-import { HostListener } from '@angular/core';
+import { HostListener, Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
@@ -40,7 +40,7 @@ export class TimerComponent implements OnInit {
 	constructor(private dialog: MatDialog) { }
 
 	ngOnInit(): void {
-		this.timer = this.TEST; // Default 2min
+		this.timer = this.MIN_2; // Default 2min
 		this.reset();
 
 		setInterval(() => { this.timerCallback(); }, 100);
@@ -73,6 +73,8 @@ export class TimerComponent implements OnInit {
 
 	addTime(millis: number): void {
 		this.remaining += millis;
+		this.render();
+		this.expiredLock = false;
 	}
 
 	removeTime(millis: number): void {
