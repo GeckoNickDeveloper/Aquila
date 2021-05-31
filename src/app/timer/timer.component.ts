@@ -1,4 +1,4 @@
-import { HostListener } from '@angular/core';
+import { HostListener, Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
@@ -74,6 +74,7 @@ export class TimerComponent implements OnInit {
 	addTime(millis: number): void {
 		this.remaining += millis;
 		this.render();
+		this.expiredLock = false;
 	}
 
 	removeTime(millis: number): void {

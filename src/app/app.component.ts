@@ -20,10 +20,14 @@ export class AppComponent implements OnInit {
 
 	constructor(private dialog: MatDialog) { this.match = new Match(); }
 
-	ngOnInit(): void { this.showAlert = false; }
+	ngOnInit(): void {
+		this.showAlert = false;
+		this.signal.loop = true;
+	}
 
 	displayAlert(): void {
 		console.error('expired');
+		this.signal.currentTime = 0;
 		this.signal.play();
 		this.showAlert = true;
 		
